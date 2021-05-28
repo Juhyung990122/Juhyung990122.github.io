@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[여름산책]]></title><description><![CDATA[Leejuhyung(Guinness)]]></description><link>https://juhyung990122.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Fri, 28 May 2021 07:59:57 GMT</lastBuildDate><item><title><![CDATA[[Spring] JPA(Java Persistence API)]]></title><description><![CDATA[🌟 Spring JPA 🎯 JPA란? 자바에서 제공하는 API임과 동시에 ORM 기술 표준입니다.
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[여름산책]]></title><description><![CDATA[Leejuhyung(Guinness)]]></description><link>https://juhyung990122.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Fri, 28 May 2021 13:40:48 GMT</lastBuildDate><item><title><![CDATA[[Spring] JPA(Java Persistence API)]]></title><description><![CDATA[🌟 Spring JPA 🎯 JPA란? 자바에서 제공하는 API임과 동시에 ORM 기술 표준입니다.
 (ORM에 대한 설명은 파이썬 카테고리의 ORM이란? 이라는 글을 참고해주세요)
 인터페이스이므로 JPA가 직접 동작하는게 아니라 
 Hiberante…]]></description><link>https://juhyung990122.github.io/Java/2021-05-25TIL/</link><guid isPermaLink="false">https://juhyung990122.github.io/Java/2021-05-25TIL/</guid><pubDate>Thu, 27 May 2021 19:54:05 GMT</pubDate><content:encoded>&lt;h2 id=&quot;-spring-jpa&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#-spring-jpa&quot; aria-label=&quot; spring jpa permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;🌟 Spring JPA&lt;/h2&gt;
@@ -9,7 +9,29 @@ Hiberante…]]></description><link>https://juhyung990122.github.io/Java/2021-05-
 Hiberante과 같은 ORM 프레임워크를 구현하여 사용합니다.&lt;br&gt;
 객체와 관계형DB 데이터를 자동으로 매핑해주어 ‘관계’를 객체 내에 반영하는 것이 목적입니다.&lt;br&gt;&lt;/p&gt;
 &lt;h2 id=&quot;-jpa-동작방식&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#-jpa-%EB%8F%99%EC%9E%91%EB%B0%A9%EC%8B%9D&quot; aria-label=&quot; jpa 동작방식 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;🎯 JPA 동작방식&lt;/h2&gt;
-&lt;p&gt;&lt;img src=&quot;../../assets/image/0525TIL_img.jpeg&quot; alt=&quot;img&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 1200px; &quot;
+    &gt;
+      &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 43.99999999999999%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAJABQDASIAAhEBAxEB/8QAFgABAQEAAAAAAAAAAAAAAAAAAAIF/8QAFAEBAAAAAAAAAAAAAAAAAAAAAP/aAAwDAQACEAMQAAAB3VAD/8QAFBABAAAAAAAAAAAAAAAAAAAAIP/aAAgBAQABBQJf/8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAwEBPwE//8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAgEBPwE//8QAFBABAAAAAAAAAAAAAAAAAAAAIP/aAAgBAQAGPwJf/8QAFxABAAMAAAAAAAAAAAAAAAAAAQARIP/aAAgBAQABPyFYN5//2gAMAwEAAgADAAAAEPDP/8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAwEBPxA//8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAgEBPxA//8QAGhABAAIDAQAAAAAAAAAAAAAAAREhACAxYf/aAAgBAQABPxBYoT1xxy8Ji+6f/9k=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;img&quot;
+        title=&quot;img&quot;
+        src=&quot;/static/9e52f1cf2617e261c224b23a0340c95d/e5166/0525TIL_img.jpg&quot;
+        srcset=&quot;/static/9e52f1cf2617e261c224b23a0340c95d/f93b5/0525TIL_img.jpg 300w,
+/static/9e52f1cf2617e261c224b23a0340c95d/b4294/0525TIL_img.jpg 600w,
+/static/9e52f1cf2617e261c224b23a0340c95d/e5166/0525TIL_img.jpg 1200w,
+/static/9e52f1cf2617e261c224b23a0340c95d/d9c39/0525TIL_img.jpg 1800w,
+/static/9e52f1cf2617e261c224b23a0340c95d/4570f/0525TIL_img.jpg 2275w&quot;
+        sizes=&quot;(max-width: 1200px) 100vw, 1200px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+    &lt;/span&gt;&lt;/p&gt;
 &lt;h2 id=&quot;-jpa를-사용하게-되면&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#-jpa%EB%A5%BC-%EC%82%AC%EC%9A%A9%ED%95%98%EA%B2%8C-%EB%90%98%EB%A9%B4&quot; aria-label=&quot; jpa를 사용하게 되면 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;🎯 JPA를 사용하게 되면?&lt;/h2&gt;
 &lt;p&gt;JPA를 사용하게되면 일단 쿼리를 직접적으로 생성하지 않아도 되니&lt;br&gt;
 상대적으로 간편하게 느껴집니다.(쿼리문은 자동생성되니까)&lt;br&gt;
