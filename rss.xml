@@ -1,6 +1,123 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[여름산책]]></title><description><![CDATA[Leejuhyung(Guinness)]]></description><link>https://juhyung990122.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Sat, 29 May 2021 13:30:02 GMT</lastBuildDate><item><title><![CDATA[[Spring] sql 스크립트를 활용한 기본데이터 적재]]></title><description><![CDATA[🌟 SQL script 🎯 sql script란? 프로젝트에 따라 시작과 동시에 들어가야하는 기본 데이터가 있을 수 있습니다.
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[여름산책]]></title><description><![CDATA[Leejuhyung(Guinness)]]></description><link>https://juhyung990122.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Sun, 30 May 2021 05:53:51 GMT</lastBuildDate><item><title><![CDATA[[Spring] 상속관계 매핑전략]]></title><description><![CDATA[🌟 JPA inheritance mapping…]]></description><link>https://juhyung990122.github.io/Spring/2021-05-30-TIL/</link><guid isPermaLink="false">https://juhyung990122.github.io/Spring/2021-05-30-TIL/</guid><pubDate>Sun, 30 May 2021 14:51:05 GMT</pubDate><content:encoded>&lt;h2 id=&quot;-jpa-inheritance-mapping&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#-jpa-inheritance-mapping&quot; aria-label=&quot; jpa inheritance mapping permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;🌟 JPA inheritance mapping&lt;/h2&gt;
+&lt;h2 id=&quot;-상속관계-매핑이란&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#-%EC%83%81%EC%86%8D%EA%B4%80%EA%B3%84-%EB%A7%A4%ED%95%91%EC%9D%B4%EB%9E%80&quot; aria-label=&quot; 상속관계 매핑이란 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;🎯 상속관계 매핑이란?&lt;/h2&gt;
+&lt;p&gt;객체사이애서 존재하는 상속이라는 개념을 관계형 데이터베이스에 적용시키는 것 입니다.&lt;br&gt;
+엄밀히 말하자면 관계형 데이터베이스에서는 상속이란 개념을 지원하지 않으므로&lt;br&gt;
+슈퍼타입, 서브타입 모델링 기법을 이용하여 유사한 기능을 하게끔 하는 것입니다.&lt;br&gt;&lt;/p&gt;
+&lt;h2 id=&quot;-jpa에서의-매핑전략&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#-jpa%EC%97%90%EC%84%9C%EC%9D%98-%EB%A7%A4%ED%95%91%EC%A0%84%EB%9E%B5&quot; aria-label=&quot; jpa에서의 매핑전략 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;🎯 JPA에서의 매핑전략&lt;/h2&gt;
+&lt;p&gt;JPA에서는 총 세가지의 상속관계 매핑 전략을 지원합니다.&lt;br&gt;
+@Inheritance(strategy = InheritanceType.전략명) 으로 정의할 수 있습니다.&lt;br&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;조인 전략(JOINED)&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 1200px; &quot;
+    &gt;
+      &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 63%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAANABQDASIAAhEBAxEB/8QAFgABAQEAAAAAAAAAAAAAAAAAAAEF/8QAFAEBAAAAAAAAAAAAAAAAAAAAAP/aAAwDAQACEAMQAAAB3VFB/8QAFhAAAwAAAAAAAAAAAAAAAAAAEBEg/9oACAEBAAEFAoQ//8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAwEBPwE//8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAgEBPwE//8QAFBABAAAAAAAAAAAAAAAAAAAAIP/aAAgBAQAGPwJf/8QAGRAAAgMBAAAAAAAAAAAAAAAAADEQESFh/9oACAEBAAE/Ia1CUUU3oj//2gAMAwEAAgADAAAAEOAP/8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAwEBPxA//8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAgEBPxA//8QAGxABAAICAwAAAAAAAAAAAAAAAQARIWEQUYH/2gAIAQEAAT8Qqq/USxid8AK1FGxtAAAYJ//Z&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;img&quot;
+        title=&quot;img&quot;
+        src=&quot;/static/dba4a8d2153974efdf0a816ec900f190/e5166/0530til-1.jpg&quot;
+        srcset=&quot;/static/dba4a8d2153974efdf0a816ec900f190/f93b5/0530til-1.jpg 300w,
+/static/dba4a8d2153974efdf0a816ec900f190/b4294/0530til-1.jpg 600w,
+/static/dba4a8d2153974efdf0a816ec900f190/e5166/0530til-1.jpg 1200w,
+/static/dba4a8d2153974efdf0a816ec900f190/72684/0530til-1.jpg 1587w&quot;
+        sizes=&quot;(max-width: 1200px) 100vw, 1200px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;부모클래스와 자식클래스 둘다 테이블을 생성합니다.&lt;br&gt;
+&lt;br&gt;
+부모클래스(슈퍼타입) : PK + 자식에게도 공통으로 적용될 필드&lt;br&gt;
+자식클래스(서브타입) : 부모의 PK(FK로 저장, 부모와 연결) + 자식 고유의 필드&lt;br&gt;
+&lt;br&gt;
+장점으로는 가장 정규화된 형태로 저장하므로 저장공간 효율성이 좋으며&lt;br&gt;
+참조무결성 제약조건을 활용하므로 안정성이 높다는 점이 있습니다.&lt;br&gt;
+따라서 규모가 크거나, 차후에 확장가능성이 있는 시스템에 적합합니다.&lt;br&gt;
+단점으로는 SELECT 시 내부조인을 하여 불러오므로 &lt;br&gt;
+(슈퍼의 PK + 서브의 PK FK값) 상대적으로 성능이 떨어질 수 있고&lt;br&gt;
+INSERT 시 같은 데이터정보를 테이블 두개에 넣어야하므로&lt;br&gt;
+쿼리문이 2배가 된다는 점이 있습니다.&lt;br&gt;
+&lt;br&gt;&lt;/p&gt;
+&lt;ol start=&quot;2&quot;&gt;
+&lt;li&gt;단일 테이블 전략(SINGLE_TABLE)&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 1200px; &quot;
+    &gt;
+      &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 44.66666666666667%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAJABQDASIAAhEBAxEB/8QAFwABAQEBAAAAAAAAAAAAAAAAAAECBf/EABQBAQAAAAAAAAAAAAAAAAAAAAD/2gAMAwEAAhADEAAAAe9NCKP/xAAUEAEAAAAAAAAAAAAAAAAAAAAg/9oACAEBAAEFAl//xAAUEQEAAAAAAAAAAAAAAAAAAAAQ/9oACAEDAQE/AT//xAAUEQEAAAAAAAAAAAAAAAAAAAAQ/9oACAECAQE/AT//xAAUEAEAAAAAAAAAAAAAAAAAAAAg/9oACAEBAAY/Al//xAAYEAACAwAAAAAAAAAAAAAAAAAAESAhUf/aAAgBAQABPyFWbH//2gAMAwEAAgADAAAAECPP/8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAwEBPxA//8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAgEBPxA//8QAGxABAAICAwAAAAAAAAAAAAAAAQAREEEhcaH/2gAIAQEAAT8QoqzyChSwHRC65wb7x//Z&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;img&quot;
+        title=&quot;img&quot;
+        src=&quot;/static/795b7b8c1d287512d44b230f1d761cfa/e5166/0530til-2.jpg&quot;
+        srcset=&quot;/static/795b7b8c1d287512d44b230f1d761cfa/f93b5/0530til-2.jpg 300w,
+/static/795b7b8c1d287512d44b230f1d761cfa/b4294/0530til-2.jpg 600w,
+/static/795b7b8c1d287512d44b230f1d761cfa/e5166/0530til-2.jpg 1200w,
+/static/795b7b8c1d287512d44b230f1d761cfa/d9c39/0530til-2.jpg 1800w,
+/static/795b7b8c1d287512d44b230f1d761cfa/6b085/0530til-2.jpg 2240w&quot;
+        sizes=&quot;(max-width: 1200px) 100vw, 1200px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;부모클래스만 테이블로 생성하여 모든 정보를 저장합니다.&lt;br&gt;&lt;/p&gt;
+&lt;br&gt;
+부모클래스(슈퍼타입) : 자식클래스 필드들 + 구분자(Dtype)&lt;br&gt;
+&lt;br&gt;
+장점으로는 SELECT시 따로 하는 작업이 없어 성능이 가장 좋고&lt;br&gt;
+직관적인 방법이라 사용하기 쉽다는 점이 있습니다.&lt;br&gt;
+따라서 상대적으로 복잡하지 않고 데이터도 많지 않은 시스템에 적합합니다.&lt;br&gt;
+단점으로는 자식클래스인 서브타입에 들어가는 필드들은 null값을 허용해야하고&lt;br&gt;
+하나의 테이블이므로 데이터가 많아지면 복잡해진다는 점이 있습니다.&lt;br&gt;
+&lt;br&gt;
+&lt;ol start=&quot;3&quot;&gt;
+&lt;li&gt;구현 클래스 테이블 전략(TABLE&lt;em&gt;PER&lt;/em&gt;CLASS)&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 1200px; &quot;
+    &gt;
+      &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 55.99999999999999%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAALABQDASIAAhEBAxEB/8QAFwABAAMAAAAAAAAAAAAAAAAAAAECBf/EABQBAQAAAAAAAAAAAAAAAAAAAAD/2gAMAwEAAhADEAAAAd6LAD//xAAUEAEAAAAAAAAAAAAAAAAAAAAg/9oACAEBAAEFAl//xAAUEQEAAAAAAAAAAAAAAAAAAAAQ/9oACAEDAQE/AT//xAAUEQEAAAAAAAAAAAAAAAAAAAAQ/9oACAECAQE/AT//xAAUEAEAAAAAAAAAAAAAAAAAAAAg/9oACAEBAAY/Al//xAAYEAEAAwEAAAAAAAAAAAAAAAABACAhMf/aAAgBAQABPyF7HHIU/9oADAMBAAIAAwAAABAQz//EABQRAQAAAAAAAAAAAAAAAAAAABD/2gAIAQMBAT8QP//EABQRAQAAAAAAAAAAAAAAAAAAABD/2gAIAQIBAT8QP//EABsQAQEAAQUAAAAAAAAAAAAAAAERACAhMUFh/9oACAEBAAE/EAO6e4OD1cVBmj//2Q==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;img&quot;
+        title=&quot;img&quot;
+        src=&quot;/static/581beede62eefe65e48fb8224dc13dd7/e5166/0530til-3.jpg&quot;
+        srcset=&quot;/static/581beede62eefe65e48fb8224dc13dd7/f93b5/0530til-3.jpg 300w,
+/static/581beede62eefe65e48fb8224dc13dd7/b4294/0530til-3.jpg 600w,
+/static/581beede62eefe65e48fb8224dc13dd7/e5166/0530til-3.jpg 1200w,
+/static/581beede62eefe65e48fb8224dc13dd7/2347c/0530til-3.jpg 1788w&quot;
+        sizes=&quot;(max-width: 1200px) 100vw, 1200px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;부모클래스는 공통필드만 제공하고 자식클래스만 테이블로 생성합니다.&lt;br&gt;&lt;/p&gt;
+&lt;p&gt;자식클래스(서브타입) : 부모에서 제공하는 공통필드들 + 자식 고유의 필드들&lt;br&gt;&lt;/p&gt;
+&lt;p&gt;장점으로는 단일테이블에 없는 Not null 조건을 사용할 수 있다는 점이 있습니다.&lt;br&gt;
+단점으로는 한번에 여러 자식테이블을 조회할때 UNION을 사용한다는 점이 있습니다.&lt;br&gt;
+동작방식이 비효율적이고 쿼리문이 복잡해지는 경우도 많아 잘 쓰지 않는 전략입니다.&lt;br&gt;&lt;/p&gt;
+&lt;h2 id=&quot;-mappedsuperclass&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#-mappedsuperclass&quot; aria-label=&quot; mappedsuperclass permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;🎯 MappedSuperClass&lt;/h2&gt;
+&lt;p&gt;앞서 말햇던 구현클래스 테이블 전략처럼 부모클래스에서 &lt;br&gt;
+공통으로 정의되는 필드만 상속받아오고 싶을 때 사용합니다.&lt;br&gt;
+부모클래스 위에 @MappedSuperClass를 선언하여 사용합니다.&lt;br&gt;
+단순히 필드값만 제공하므로 상속관계 매핑이라 할 수 없고&lt;br&gt;
+조회나 검색이 불가능하여 Generic repository를 만들 수 없는 특징이 있습니다.&lt;br&gt;&lt;/p&gt;</content:encoded></item><item><title><![CDATA[[Spring] sql 스크립트를 활용한 기본데이터 적재]]></title><description><![CDATA[🌟 SQL script 🎯 sql script란? 프로젝트에 따라 시작과 동시에 들어가야하는 기본 데이터가 있을 수 있습니다.
 이를 특정 SQL파일로 선언해두면 서버가 돌아감과 동시에 자동 실행되어 
-데이터를 적재하게끔 하는데, 이를 sql…]]></description><link>https://juhyung990122.github.io/Java/2021-05-29-TIL/</link><guid isPermaLink="false">https://juhyung990122.github.io/Java/2021-05-29-TIL/</guid><pubDate>Fri, 28 May 2021 20:26:05 GMT</pubDate><content:encoded>&lt;h2 id=&quot;-sql-script&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#-sql-script&quot; aria-label=&quot; sql script permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;🌟 SQL script&lt;/h2&gt;
+데이터를 적재하게끔 하는데, 이를 sql…]]></description><link>https://juhyung990122.github.io/Spring/2021-05-29-TIL/</link><guid isPermaLink="false">https://juhyung990122.github.io/Spring/2021-05-29-TIL/</guid><pubDate>Fri, 28 May 2021 20:26:05 GMT</pubDate><content:encoded>&lt;h2 id=&quot;-sql-script&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#-sql-script&quot; aria-label=&quot; sql script permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;🌟 SQL script&lt;/h2&gt;
 &lt;h2 id=&quot;-sql-script란&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#-sql-script%EB%9E%80&quot; aria-label=&quot; sql script란 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;🎯 sql script란?&lt;/h2&gt;
 &lt;p&gt;프로젝트에 따라 시작과 동시에 들어가야하는 기본 데이터가 있을 수 있습니다.&lt;br&gt;
 이를 특정 SQL파일로 선언해두면 서버가 돌아감과 동시에 자동 실행되어 &lt;br&gt;
