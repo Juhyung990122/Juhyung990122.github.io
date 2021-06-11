@@ -70,8 +70,115 @@
 생성과 관련된 정보를 분리하여 관리하므로 결합도가 낮고<br>
 생성기능을 부모클래스에 노출시키지 않음으로서 캡슐화까지 가능하단 점에서 이득입니다.<br></p>
 <h2 id="-대략적인-예제" style="position:relative;"><a href="#-%EB%8C%80%EB%9E%B5%EC%A0%81%EC%9D%B8-%EC%98%88%EC%A0%9C" aria-label=" 대략적인 예제 permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>🎯 대략적인 예제</h2>
-<p><a href="https://jdm.kr/blog/180">https://jdm.kr/blog/180</a>
-<a href="https://velog.io/@ellyheetov/Factory-Pattern">https://velog.io/@ellyheetov/Factory-Pattern</a></p></div><div class="social-share"><a class="resp-sharing-button__link" href="#" target="_blank" rel="noopener" aria-label="Share on Facebook"><div class="resp-sharing-button resp-sharing-button--facebook resp-sharing-button--large"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18.77 7.46H14.5v-1.9c0-.9.6-1.1 1-1.1h3V.5h-4.33C10.24.5 9.5 3.44 9.5 5.32v2.15h-3v4h3v12h5v-12h3.85l.42-4z"></path></svg></div><span class="service-label">Share on Facebook</span></div></a><a class="resp-sharing-button__link" href="#" rel="noopener" aria-label="Share on Twitter"><div class="resp-sharing-button resp-sharing-button--twitter resp-sharing-button--large"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M23.44 4.83c-.8.37-1.5.38-2.22.02.93-.56.98-.96 1.32-2.02-.88.52-1.86.9-2.9 1.1-.82-.88-2-1.43-3.3-1.43-2.5 0-4.55 2.04-4.55 4.54 0 .36.03.7.1 1.04-3.77-.2-7.12-2-9.36-4.75-.4.67-.6 1.45-.6 2.3 0 1.56.8 2.95 2 3.77-.74-.03-1.44-.23-2.05-.57v.06c0 2.2 1.56 4.03 3.64 4.44-.67.2-1.37.2-2.06.08.58 1.8 2.26 3.12 4.25 3.16C5.78 18.1 3.37 18.74 1 18.46c2 1.3 4.4 2.04 6.97 2.04 8.35 0 12.92-6.92 12.92-12.93 0-.2 0-.4-.02-.6.9-.63 1.96-1.22 2.56-2.14z"></path></svg></div><span class="service-label">Share on Twitter</span></div></a></div><hr class="custom-hr"/><div class="bio"><div class="author"><div class="author-description"><div class="author-image gatsby-image-wrapper" style="position:relative;overflow:hidden;display:inline-block;width:72px;height:72px;border-radius:100%"><img aria-hidden="true" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAIAAAAC64paAAAACXBIWXMAAAsTAAALEwEAmpwYAAACqklEQVQ4y32TWUuqURSG92/qX3TTjVAJXUkDURQOFRQECQ5NZI6ZDTY4ZDaZNqlleTwVRt1pVwVB1M84D3uZnIJz3gvZfq5nrfdd+1Plcrmzs7N8Pl8oFC4vL6+vr29ubsrl8i+tSqXy+7vkOQVUqiZcLBavrq5+wBx+8Hz9Bp+fn/8Lfnh4uL295dAk/weXSiWBKeXs8/kouLu7kwhCImoobti+uLiQzCUtugKPjIxMTU0NDg7SWqY1swBTprLZ7Onp6d/DacHn7u6uxWKpVqsDAwPJZBLz4khIulOmjo6O4E9OTqQF83Hx+PgYDAbb2tp4bjabY7EYhsWRiHMDPj4+zmpRSgrg19fXRCLR0tKCheXl5ZWVFaaJIxFnxqjDw8NMJtPkDw4O7u/v6/U6KSYmJubn55+enshPU3kXil9qwAzPaEGm02lyAjw/P39+fm5vb29sbPCVn/DFamU7CIOKxezt7aW14vE4FthNrVb7+Ph4f39nEWS22+2sQAzK7YhUUguMkJFIBBdcBiEXFhZmZmbGxsb6+/t7enocDgfd9/f3JWZOSyW0gHEYjUZhhoaGOjs7jUZje3u7UQt+cXExlUphE//NNTVgLoP5a2trk5OTvb293d3dJpPJ7XbzsK+vz2azkXxnZ4fhAosU2NbW1ubm5urq6vDwMA67tEZHR2n/9vbGrUxPT1MDzGQxL1I8xTAwhnmlrFYrLTiwJK5qdnb25eUFh6yDMSmt5o4VOSExPDc3x4RAIMDdLi0tYYQI9KKAN4Sf8EIvtkMW6aLA1tfXeY3Yrcfj8fv9VITDYfjx8fHW1lan00lHl8tFAWcK4l9SES2q3VrMByaC1+sFNhgMMAEtyvhk7cSUsCqsxTvg1HJpcYDhL9nR0UGjoFYoFBI4qsX+/wCgXBXQIN21SQAAAABJRU5ErkJggg==" alt="이주형" style="position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;object-position:center;opacity:1;transition-delay:500ms"/><noscript><picture><source srcset="/static/f4ba6e2f0a56163bcb7f216d4a35bb3a/e5b88/profile.png 1x,
+<p>본 예제에선 슈퍼클래스 Item 과 서브클래스 drink, food로 나뉩니다.<br>
+<br></p>
+<ol>
+<li>일단 슈퍼 클래스부터 만들어줍니다. </li>
+</ol>
+<div class="gatsby-highlight" data-language="java"><pre class="language-java"><code class="language-java"><span class="token annotation punctuation">@Entity</span>
+<span class="token annotation punctuation">@NoArgsConstructor</span>
+<span class="token annotation punctuation">@Getter</span>
+<span class="token keyword">public</span> <span class="token keyword">abstract</span> <span class="token keyword">class</span> <span class="token class-name">Item</span><span class="token punctuation">{</span>
+
+    <span class="token annotation punctuation">@Id</span>
+    <span class="token annotation punctuation">@GeneratedValue</span><span class="token punctuation">(</span>strategy <span class="token operator">=</span> <span class="token class-name">GenerationType</span><span class="token punctuation">.</span>IDENTITY<span class="token punctuation">)</span>
+    <span class="token keyword">private</span> <span class="token class-name">Long</span> id<span class="token punctuation">;</span>
+    <span class="token keyword">private</span> <span class="token class-name">String</span> name<span class="token punctuation">;</span>
+
+    <span class="token keyword">public</span> <span class="token class-name">Item</span><span class="token punctuation">(</span><span class="token class-name">String</span> name<span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token keyword">super</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>name <span class="token operator">=</span> name<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></code></pre></div>
+<ol start="2">
+<li>서브 클래스도 만들어줍니다.</li>
+</ol>
+<div class="gatsby-highlight" data-language="java"><pre class="language-java"><code class="language-java"><span class="token annotation punctuation">@Entity</span>
+<span class="token annotation punctuation">@Getter</span>
+<span class="token annotation punctuation">@NoArgsConstructor</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Food</span> <span class="token keyword">extends</span> <span class="token class-name">Item</span> <span class="token punctuation">{</span>
+    <span class="token keyword">public</span> <span class="token class-name">Food</span><span class="token punctuation">(</span><span class="token class-name">String</span> name<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">super</span><span class="token punctuation">(</span>name<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token annotation punctuation">@Entity</span>
+<span class="token annotation punctuation">@Getter</span>
+<span class="token annotation punctuation">@NoArgsConstructor</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Drink</span> <span class="token keyword">extends</span> <span class="token class-name">Item</span> <span class="token punctuation">{</span>
+    <span class="token keyword">public</span> <span class="token class-name">Drink</span><span class="token punctuation">(</span><span class="token class-name">String</span> name<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">super</span><span class="token punctuation">(</span>name<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></code></pre></div>
+<ol start="3">
+<li>팩토리 클래스를 추상클래스로 만들어준 뒤 내부에 추상메소드를 정의합니다.</li>
+</ol>
+<div class="gatsby-highlight" data-language="java"><pre class="language-java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">abstract</span> <span class="token keyword">class</span> <span class="token class-name">ItemFactory</span><span class="token punctuation">{</span>
+    <span class="token keyword">public</span> <span class="token keyword">abstract</span> <span class="token class-name">Item</span> <span class="token function">create</span><span class="token punctuation">(</span><span class="token class-name">String</span> type<span class="token punctuation">,</span><span class="token class-name">String</span> name<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre></div>
+<ol start="4">
+<li>추상클래스를 구현해줍니다. <br>
+객체생성시 타입별로 구분해서 서로 다른 객체를 생성합니다.</li>
+</ol>
+<div class="gatsby-highlight" data-language="java"><pre class="language-java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">ItemCreate</span> <span class="token keyword">extends</span> <span class="token class-name">ItemFactory</span><span class="token punctuation">{</span>
+    <span class="token annotation punctuation">@Override</span>
+    <span class="token keyword">public</span> <span class="token class-name">Item</span> <span class="token function">create</span><span class="token punctuation">(</span><span class="token class-name">String</span> type<span class="token punctuation">,</span> <span class="token class-name">String</span> name<span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token keyword">switch</span><span class="token punctuation">(</span>type<span class="token punctuation">)</span><span class="token punctuation">{</span>
+            <span class="token keyword">case</span> <span class="token string">"food"</span><span class="token operator">:</span>
+                <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">Food</span><span class="token punctuation">(</span>name<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+            <span class="token keyword">case</span> <span class="token string">"drink"</span><span class="token operator">:</span>
+                <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">Drink</span><span class="token punctuation">(</span>name<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+            <span class="token keyword">default</span><span class="token operator">:</span>
+                <span class="token keyword">throw</span> <span class="token keyword">new</span> <span class="token class-name">RuntimeException</span><span class="token punctuation">(</span><span class="token string">"type is not exist"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></code></pre></div>
+<ol start="5">
+<li>테스트 해봅니다.</li>
+</ol>
+<div class="gatsby-highlight" data-language="java"><pre class="language-java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">TestFactory</span> <span class="token punctuation">{</span>
+
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token class-name">ItemCreate</span> itemCreate <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ItemCreate</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token class-name">Item</span> testFood <span class="token operator">=</span> itemCreate<span class="token punctuation">.</span><span class="token function">create</span><span class="token punctuation">(</span><span class="token string">"food"</span><span class="token punctuation">,</span><span class="token string">"테스트음식"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token class-name">Item</span> testDrink <span class="token operator">=</span> itemCreate<span class="token punctuation">.</span><span class="token function">create</span><span class="token punctuation">(</span><span class="token string">"drink"</span><span class="token punctuation">,</span><span class="token string">"테스트음료"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>testFood<span class="token punctuation">.</span><span class="token function">getName</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>testDrink<span class="token punctuation">.</span><span class="token function">getName</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+<span class="token punctuation">}</span></code></pre></div>
+<br>
+결과는 다음과 같이 객체가 생성되어 나옵니다!<br>
+<p><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 1200px; "
+    >
+      <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 18.999999999999996%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAECAYAAACOXx+WAAAACXBIWXMAABYlAAAWJQFJUiTwAAAATUlEQVQY043OsQ3AMAgEQK8DmAJMyf5rEQXJRTCSU1z3PD/cPRAxiOhjznn15urtEJFg5sMO39TSLDSzpKpprZULuuXVsRAAotN9/+MBQ0x4uHi+meQAAAAASUVORK5CYII='); background-size: cover; display: block;"
+  ></span>
+  <img
+        class="gatsby-resp-image-image"
+        alt="img"
+        title="img"
+        src="/static/48c727b7e6b051f1d9ba8b7837483182/c1b63/0602til.png"
+        srcset="/static/48c727b7e6b051f1d9ba8b7837483182/5a46d/0602til.png 300w,
+/static/48c727b7e6b051f1d9ba8b7837483182/0a47e/0602til.png 600w,
+/static/48c727b7e6b051f1d9ba8b7837483182/c1b63/0602til.png 1200w,
+/static/48c727b7e6b051f1d9ba8b7837483182/0d292/0602til.png 1620w"
+        sizes="(max-width: 1200px) 100vw, 1200px"
+        style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+        loading="lazy"
+      />
+    </span></p>
+<br>
+<br>
+https://jdm.kr/blog/180<br>
+https://velog.io/@ellyheetov/Factory-Pattern<br>
+https://readystory.tistory.com/117<br></div><div class="social-share"><a class="resp-sharing-button__link" href="#" target="_blank" rel="noopener" aria-label="Share on Facebook"><div class="resp-sharing-button resp-sharing-button--facebook resp-sharing-button--large"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18.77 7.46H14.5v-1.9c0-.9.6-1.1 1-1.1h3V.5h-4.33C10.24.5 9.5 3.44 9.5 5.32v2.15h-3v4h3v12h5v-12h3.85l.42-4z"></path></svg></div><span class="service-label">Share on Facebook</span></div></a><a class="resp-sharing-button__link" href="#" rel="noopener" aria-label="Share on Twitter"><div class="resp-sharing-button resp-sharing-button--twitter resp-sharing-button--large"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M23.44 4.83c-.8.37-1.5.38-2.22.02.93-.56.98-.96 1.32-2.02-.88.52-1.86.9-2.9 1.1-.82-.88-2-1.43-3.3-1.43-2.5 0-4.55 2.04-4.55 4.54 0 .36.03.7.1 1.04-3.77-.2-7.12-2-9.36-4.75-.4.67-.6 1.45-.6 2.3 0 1.56.8 2.95 2 3.77-.74-.03-1.44-.23-2.05-.57v.06c0 2.2 1.56 4.03 3.64 4.44-.67.2-1.37.2-2.06.08.58 1.8 2.26 3.12 4.25 3.16C5.78 18.1 3.37 18.74 1 18.46c2 1.3 4.4 2.04 6.97 2.04 8.35 0 12.92-6.92 12.92-12.93 0-.2 0-.4-.02-.6.9-.63 1.96-1.22 2.56-2.14z"></path></svg></div><span class="service-label">Share on Twitter</span></div></a></div><hr class="custom-hr"/><div class="bio"><div class="author"><div class="author-description"><div class="author-image gatsby-image-wrapper" style="position:relative;overflow:hidden;display:inline-block;width:72px;height:72px;border-radius:100%"><img aria-hidden="true" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAIAAAAC64paAAAACXBIWXMAAAsTAAALEwEAmpwYAAACqklEQVQ4y32TWUuqURSG92/qX3TTjVAJXUkDURQOFRQECQ5NZI6ZDTY4ZDaZNqlleTwVRt1pVwVB1M84D3uZnIJz3gvZfq5nrfdd+1Plcrmzs7N8Pl8oFC4vL6+vr29ubsrl8i+tSqXy+7vkOQVUqiZcLBavrq5+wBx+8Hz9Bp+fn/8Lfnh4uL295dAk/weXSiWBKeXs8/kouLu7kwhCImoobti+uLiQzCUtugKPjIxMTU0NDg7SWqY1swBTprLZ7Onp6d/DacHn7u6uxWKpVqsDAwPJZBLz4khIulOmjo6O4E9OTqQF83Hx+PgYDAbb2tp4bjabY7EYhsWRiHMDPj4+zmpRSgrg19fXRCLR0tKCheXl5ZWVFaaJIxFnxqjDw8NMJtPkDw4O7u/v6/U6KSYmJubn55+enshPU3kXil9qwAzPaEGm02lyAjw/P39+fm5vb29sbPCVn/DFamU7CIOKxezt7aW14vE4FthNrVb7+Ph4f39nEWS22+2sQAzK7YhUUguMkJFIBBdcBiEXFhZmZmbGxsb6+/t7enocDgfd9/f3JWZOSyW0gHEYjUZhhoaGOjs7jUZje3u7UQt+cXExlUphE//NNTVgLoP5a2trk5OTvb293d3dJpPJ7XbzsK+vz2azkXxnZ4fhAosU2NbW1ubm5urq6vDwMA67tEZHR2n/9vbGrUxPT1MDzGQxL1I8xTAwhnmlrFYrLTiwJK5qdnb25eUFh6yDMSmt5o4VOSExPDc3x4RAIMDdLi0tYYQI9KKAN4Sf8EIvtkMW6aLA1tfXeY3Yrcfj8fv9VITDYfjx8fHW1lan00lHl8tFAWcK4l9SES2q3VrMByaC1+sFNhgMMAEtyvhk7cSUsCqsxTvg1HJpcYDhL9nR0UGjoFYoFBI4qsX+/wCgXBXQIN21SQAAAABJRU5ErkJggg==" alt="이주형" style="position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;object-position:center;opacity:1;transition-delay:500ms"/><noscript><picture><source srcset="/static/f4ba6e2f0a56163bcb7f216d4a35bb3a/e5b88/profile.png 1x,
 /static/f4ba6e2f0a56163bcb7f216d4a35bb3a/e7bd6/profile.png 1.5x,
 /static/f4ba6e2f0a56163bcb7f216d4a35bb3a/a12fc/profile.png 2x" /><img loading="lazy" width="72" height="72" srcset="/static/f4ba6e2f0a56163bcb7f216d4a35bb3a/e5b88/profile.png 1x,
 /static/f4ba6e2f0a56163bcb7f216d4a35bb3a/e7bd6/profile.png 1.5x,
