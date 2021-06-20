@@ -81,19 +81,20 @@ Enum을 사용하여 새로운 타입을 정의하게 된다는 점을 활용하
 <span class="token punctuation">}</span></code></pre></div>
 <h2 id="-enum-class-장점" style="position:relative;"><a href="#-enum-class-%EC%9E%A5%EC%A0%90" aria-label=" enum class 장점 permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>🎯 Enum class 장점</h2>
 <ol>
-<li>인풋 타입 체크
-enum내에 지정되어있지 않은 형식의 인풋이 들어오면 컴파일 에러를 리턴합니다.<br>
+<li>인풋 타입 체크<br></li>
+</ol>
+<p>enum내에 지정되어있지 않은 형식의 인풋이 들어오면
+컴파일 에러를 리턴합니다.<br>
 예시로 제 키덕 프로젝트의 회원 타입부분을 들 수 있는데<br>
 type필드를 이넘클래스로 만들고 Keyduck, Google, Kakao 세가지를 <br>
 인스턴스로 정의한 뒤 입력으로 Naver을 보내면 다음과 같은 에러가 뜹니다.<br>
-<br></li>
-</ol>
+<br></p>
 <div class="gatsby-highlight" data-language="json"><pre class="language-json"><code class="language-json"><span class="token punctuation">{</span>
   <span class="token property">"success"</span><span class="token operator">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span>
   <span class="token property">"code"</span><span class="token operator">:</span> <span class="token number">500</span><span class="token punctuation">,</span>
   <span class="token property">"msg"</span><span class="token operator">:</span> <span class="token string">"JSON parse error: Cannot deserialize value of type `com.keyduck.member.domain.MemberType` from String \"Naver\": not one of the values accepted for Enum class: [Keyduck, Google, Kakao]; nested exception is com.fasterxml.jackson.databind.exc.InvalidFormatException: Cannot deserialize value of type `com.keyduck.member.domain.MemberType` from String \"Naver\": not one of the values accepted for Enum class: [Keyduck, Google, Kakao]\n at [Source: (PushbackInputStream); line: 4, column: 9] (through reference chain: com.keyduck.member.dto.MemberCreateDto[\"type\"])"</span>
 <span class="token punctuation">}</span></code></pre></div>
-<ol start="2">
+<ol>
 <li>타입 안정성 보장
 Enum클래스는 private로 선언되기에 <br>
 다른 패키지나 클래스에서 값을 조작하거나 할당할 수 없습니다. <br>
